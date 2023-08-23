@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100vh;
+        }
+        nav{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border: 1px solid;
+        }
+        nav #ul{
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 1em;
+        }
+        .nav-bar{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            width: 10em;
+            height: 10em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 10%;
+        }
+        .left-right{
+            display: flex;
+        }
+        :root{
+            --love-color: rgb(227, 0, 0);
+        }
+        .right{
+            background-color: var(--love-color);
+            width: 3.5em;
+            height: 3.5em;
+            border-radius: 50%;
+            margin: 0 0 0 -.5em;
+        }
+        .left{
+            background-color: var(--love-color);
+            width: 3.5em;
+            height: 3.5em;
+            border-radius: 50%;
+            margin: 0 -.5em 0 0;
+        }
+        .root{
+            background-color: var(--love-color);
+            width: 3em;
+            height: 3em;
+            transform: rotate(45deg);
+            margin-top: -1.7em;
+        }
+        </style>
+</head>
+<body>
+    
+    <nav>
+        <ul id="ul">
+            <li>Home</li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <div class="nav-bar">
+        <div class="left-right">
+        <div class="left"></div>
+        <div class="right"></div>
+        </div>
+        <div class="root"></div>
+    </div>
+    
+
+    <script>
+        const body = document.querySelector('body')
+        const ul = document.querySelector('#ul')
+        const navBtn = document.querySelector('.nav-bar')
+
+
+        
+        let toggler = true
+        navBtn.onmouseover = () => {
+            if (toggler){
+                toggler = false
+                // console.log(toggler)
+                ul.style.display = 'flex'
+                navBtn.style.backgroundColor = 'white'
+                navBtn.style.boxShadow =  '10px 10px 17px 1px rgb(255, 0, 0)';
+                navBtn.style.transition = '10s'
+                body.style.backgroundColor = 'black'
+                body.style.transition = '8s'
+            }else{
+                toggler = true
+                // console.log(toggler)
+                ul.style.display = 'none'
+                body.style.backgroundColor = 'white'
+                navBtn.style.boxShadow =  'inset 10px 10px 20px 2px rgb(0, 0, 255)';
+                navBtn.style.backgroundColor = 'gray'
+            }
+        }
+    </script>
+</body>
+</html>
