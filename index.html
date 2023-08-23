@@ -8,6 +8,7 @@
         *{
             margin: 0;
             padding: 0;
+            transition: 10s;
         }
         body{
             display: flex;
@@ -104,13 +105,11 @@
         const ul = document.querySelector('#ul')
         const navBtn = document.querySelector('.nav-bar')
         const spanText = document.querySelector('span')
-        const all = document.querySelector('*')
 
 
         
         let toggler = true
         navBtn.onclick = () => {
-            all.style.transition = '10s'
 
             if (toggler){
                 toggler = false
