@@ -45,13 +45,15 @@
         }
         .left-right{
             display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
         }
         .left-right span{
             position: absolute;
-            top: 30%;
-            left: 25%;
             z-index: 1;
+            width: max-content;
+            color: white;
         }
         :root{
             --love-color: rgb(227, 0, 0);
@@ -101,13 +103,14 @@
         const body = document.querySelector('body')
         const ul = document.querySelector('#ul')
         const navBtn = document.querySelector('.nav-bar')
+        const spanText = document.querySelector('span')
+        const all = document.querySelector('*')
 
 
         
         let toggler = true
         navBtn.onclick = () => {
-            body.style.transition = '5s'
-            navBtn.style.transition = '10s'
+            all.style.transition = '10s'
 
             if (toggler){
                 toggler = false
@@ -116,9 +119,13 @@
                 navBtn.style.backgroundColor = 'white'
                 navBtn.style.boxShadow =  '10px 10px 17px 1px rgb(255, 0, 0)';
                 body.style.backgroundColor = 'black'
+                spanText.innerText = 'Good Night'
+                spanText.style.fontSize = '1rem'
             }else{
                 toggler = true
                 // console.log(toggler)
+                spanText.innerText = 'Good Morning'
+                spanText.style.fontSize = '.8rem'
                 ul.style.display = 'none'
                 body.style.backgroundColor = 'rgb(195, 195, 195)'
                 navBtn.style.boxShadow =  'inset 10px 10px 30px 1px rgb(255, 0, 0)';
