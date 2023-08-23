@@ -12,8 +12,10 @@
         body{
             display: flex;
             flex-direction: column;
-            position: relative;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
+            background-color: rgb(195, 195, 195);
         }
         nav{
             display: none;
@@ -36,16 +38,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: black;
             width: 10em;
             height: 10em;
-            position: absolute;
-            top: 50%;
-            left: 50%;
             border-radius: 10%;
+            box-shadow: inset 10px 10px 30px 1px rgb(255, 0, 0);
         }
         .left-right{
             display: flex;
+            position: relative;
+        }
+        .left-right span{
+            position: absolute;
+            top: 30%;
+            left: 25%;
+            z-index: 1;
         }
         :root{
             --love-color: rgb(227, 0, 0);
@@ -84,7 +90,7 @@
 
     <div class="nav-bar">
         <div class="left-right">
-        <div class="left"></div>
+        <div class="left"></div><span>Tap Me</span>
         <div class="right"></div>
         </div>
         <div class="root"></div>
@@ -99,23 +105,24 @@
 
         
         let toggler = true
-        navBtn.onmouseover = () => {
+        navBtn.onclick = () => {
+            body.style.transition = '5s'
+            navBtn.style.transition = '10s'
+
             if (toggler){
                 toggler = false
                 // console.log(toggler)
                 ul.style.display = 'flex'
                 navBtn.style.backgroundColor = 'white'
                 navBtn.style.boxShadow =  '10px 10px 17px 1px rgb(255, 0, 0)';
-                navBtn.style.transition = '10s'
                 body.style.backgroundColor = 'black'
-                body.style.transition = '8s'
             }else{
                 toggler = true
                 // console.log(toggler)
                 ul.style.display = 'none'
-                body.style.backgroundColor = 'white'
-                navBtn.style.boxShadow =  'inset 10px 10px 20px 2px rgb(0, 0, 255)';
-                navBtn.style.backgroundColor = 'gray'
+                body.style.backgroundColor = 'rgb(195, 195, 195)'
+                navBtn.style.boxShadow =  'inset 10px 10px 30px 1px rgb(255, 0, 0)';
+                navBtn.style.backgroundColor = 'transparent'
             }
         }
     </script>
